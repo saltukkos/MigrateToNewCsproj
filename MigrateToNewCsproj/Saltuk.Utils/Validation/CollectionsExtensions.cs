@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 namespace Saltuk.Utils.Validation
 {
     public static class CollectionsExtensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> WithNullChecking<T>([NotNull] this IEnumerable<T> enumerable) where T : class 
         {
             ThrowIf.Argument.IsNull(enumerable, nameof(enumerable));
@@ -19,6 +21,7 @@ namespace Saltuk.Utils.Validation
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> WithNullChecking<T>([NotNull] this List<T> list) where T : class 
         {
             ThrowIf.Argument.IsNull(list, nameof(list));
